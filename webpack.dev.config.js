@@ -5,8 +5,6 @@ const path =require('path');
 //exportamos un objeto de configuracion 
 //que sera usado por webpack
 module.exports={
-    //0. Estableciendo el modo prouccion
-    mode:'production',
     //1. El arcivo de entrada o indexador (contiene las referencias principales)
     entry: "/client/index.js",
     //2. Especificar el archivo de salida
@@ -16,7 +14,6 @@ module.exports={
         //2.2 nombre del archivo de salida
     filename: "bundle.js"
     },
-    /*
     devServer:{
         //3.1Folder de archivos estaticos
         static:path.join(__dirname,"public"),
@@ -24,5 +21,5 @@ module.exports={
         port:8080,
         //3.3 definiendo el host
         host:"localhost"
-    }*/
+    }
 }

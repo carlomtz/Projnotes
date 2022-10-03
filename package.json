@@ -6,7 +6,7 @@
     "start": "node ./server/bin/www",
     "dev": "nodemon ./server/bin/www",
     "devb":"babel-watch ./server/bin/www",
-    "devc":"NODE_ENV=development && webpack serve --config ./webpack.config.js --mode development",
+    "devc":"NODE_ENV=development && webpack serve --config ./webpack.dev.config.js --mode development",
     "clean":"rm -rf dist",
     "build":"npm run clean&& babel ./server --out-dir dist --copy-files"
   },
