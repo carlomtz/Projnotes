@@ -2,6 +2,10 @@
 //el archivo de confguracion debe usar es5
 //importar un administrado de rutas de archivos
 const path =require('path');
+//Importando el extractor de css 
+const MiniCssExtractPlugin =
+  require('mini-css-extract-plugin');
+
 //exportamos un objeto de configuracion 
 //que sera usado por webpack
 module.exports={
@@ -27,7 +31,7 @@ module.exports={
         rules:[
             {
                 test:/\.js$/,
-                exclude:/(node_modules│ bower_components)/,
+                exclude: /(node_modules|bower_components)/,
                 use:[
                     {
                     loader:'babel-loader',
@@ -39,7 +43,8 @@ module.exports={
                                 {
                                     'modules':false,
                                     'useBuiltIns': 'usage',
-                                    'targets': '>0.25%, not dead',
+                                    //'targets': '>0.25%, not dead',
+                                    'targets':{"opera":80},
                                     'corejs': 3
                                 }
                             ]
@@ -47,7 +52,17 @@ module.exports={
                     }
                     }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader,'css-loader'] 
             }
         ]
-    }
+    },
+    //Seccion de plugins
+    plugins: [
+        new MiniCssExtractPlugin({
+          filename: 'stylesheets/app.css'
+    })
+    ]
 }
