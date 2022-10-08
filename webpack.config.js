@@ -1,4 +1,4 @@
-//notas importnates
+//notas importaantes
 //el archivo de confguracion debe usar es5
 //importar un administrado de rutas de archivos
 const path =require('path');
