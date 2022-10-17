@@ -6,7 +6,7 @@
 
 //var app = require('../app');
 import app from "../app"
-var debug = require('debug')('projnotes:server');
+var debug = require('debug')('projnotes');
 var http = require('http');
 
 /**
@@ -87,7 +87,7 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
 
-  console.log("Listening at htto://localhost:" + addr.port);
+ let {port} =addr
+ debug(`Listening on http://localhost:${port}`);
 }

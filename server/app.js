@@ -15,6 +15,11 @@ import cookieParser from 'cookie-parser';
 //Bliblioteca que registra en consola solicitudes del cliente
 //var logger = require('morgan');
 import logger  from 'morgan';
+//Importando webpackmiddelware
+import webpack from 'webpack'
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import WebpackHotMiddleware from 'webpack-hot-middleware'
+import webpackConfig from '../webpack.dev.config.js'
 //Definicion de rutas 
 //var indexRouter = require('./routes/index');
 import indexRouter from "./routes/index";
