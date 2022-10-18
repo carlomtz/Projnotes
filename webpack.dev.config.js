@@ -13,16 +13,19 @@ module.exports={
     entry: "/client/index.js",
     //2. Especificar el archivo de salida
     output: {
-        //2.1 nos especifica la ruta de salida
+        //2.1 Ruta fuente de archivos publicos
         path: path.resolve(__dirname, "public"),
         //2.2 nombre del archivo de salida
-    filename: "bundle.js"
+        filename: "bundle.js",
+        //2.3 Agrgando la ruta publica de servicio
+        publicPath:'/'
     },
+    // 3 Configurano el servidor de desarrollo
     devServer:{
         //3.1Folder de archivos estaticos
         static:path.join(__dirname,"public"),
         //puerto del servidor de desarrollo
-        port:8080,
+        port:3000,
         //3.3 definiendo el host
         host:"localhost"
     },
