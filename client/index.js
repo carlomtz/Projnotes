@@ -1,7 +1,5 @@
+// Cargando Estilos
+import './stylesheet/myStyles.css';
+import './stylesheet/style.css';
 
-
-import './stylesheet/myStyles.css'
-import './stylesheet/style.css'
-
-console.log("Webpack Working Middleware!! =D");
-
+console.log('Webpack Working Middleware!! =D');

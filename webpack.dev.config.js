@@ -68,6 +68,6 @@ module.exports={
         new MiniCssExtractPlugin({
           filename: 'stylesheets/app.css'
     }),
-    new SlintPlugin()
+    new ESlintPlugin()
     ]
 }
