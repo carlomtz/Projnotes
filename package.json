@@ -6,7 +6,7 @@
     "start": "NODE_ENV=production node ./dist/bin/www",
     "dev": "DEBUG=projnotes NODE_ENV=development nodemon --exec babel-node ./server/bin/www",
     "devb": "babel-watch ./server/bin/www",
-    "devc": "NODE_ENV=development && webpack serve --config ./webpack.dev.config.js --mode development",
+    "devc": "eslint --fix ./client && NODE_ENV=development && webpack serve --config ./webpack.dev.config.js --mode development",
     "cleans": "rm -rf dist",
     "cleanc": "rm -f ./public/bundle.js ./public/stylesheets/app.css",
     "b:s": "npm run cleans && babel ./server --out-dir dist --copy-files",
