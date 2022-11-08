@@ -1,6 +1,6 @@
 // Biblioteca de 3ros para manejar errores http
 // ES5: var createError = require('http-errors');
-// ES6 
+// ES6
 import createError from 'http-errors';
 // El framework express
 import express from 'express';

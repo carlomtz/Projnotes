@@ -17,5 +17,8 @@
 "rules": {
     "prettier/prettier":["error"],
     "no-console":"off"
+},
+"globals":{
+    "M":"writable"
 }
 }
