@@ -1,9 +1,10 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+  value: true,
 });
-exports.default = void 0;
+const __default = void 0;
+export { __default as default };
 
 var _httpErrors = _interopRequireDefault(require("http-errors"));
 
@@ -106,4 +107,5 @@ app.use((err, req, res, next) => {
 // ES6 
 
 var _default = app;
-exports.default = _default;
+const __default = _default;
+export { __default as default };
