@@ -4,18 +4,19 @@
  * Module dependencies.
  */
 
-//var app = require('../app');
-import app from "../app"
-//import debug from '../services/debugLogger'
-var debug = require('debug')('projnotes');
+// var app = require('../app');
+import { config } from 'dotenv';
+import app from '../app';
+import configKeys from '../config/configKeys';
+// import debug from '../services/debugLogger'
+const debug = require('debug')('projnotes');
 
 var http = require('http');
-
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(configKeys.port);
 app.set('port', port);
 
 /**
@@ -90,6 +91,6 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
 
- let {port} =addr
- debug(`Listening on http://localhost:${port}`);
+  let { port } = addr;
+  debug(`Listening on http://localhost:${port}`);
 }
