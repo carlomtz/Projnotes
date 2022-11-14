@@ -1,1 +1,3 @@
-(()=>{"use strict";console.log("Webpack Working!! =D")})();
+(() => {
+  console.log('Webpack Working!! =D');
+})();

@@ -4,42 +4,52 @@
  * Module dependencies.
  */
 // var app = require('../app');
-"use strict";
+'use strict';
 
-var _app = _interopRequireDefault(require("../app"));
+// eslint-disable-next-line no-underscore-dangle, no-use-before-define
+const _app = _interopRequireDefault(require('../app'));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+// eslint-disable-next-line no-underscore-dangle
+function _interopRequireDefault(obj) {
+  // eslint-disable-next-line no-underscore-dangle
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
 // import debug from '../services/debugLogger'
-var debug = require('debug')('projnotes');
+const debug = require('debug')('projnotes');
 
-var http = require('http');
+const http = require('http');
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+// eslint-disable-next-line no-use-before-define
+const port = normalizePort(process.env.PORT || '3000');
 _app.default.set('port', port);
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(_app.default); //app es una funcion de tipo middleware (codigo intermedieaario
+const server = http.createServer(_app.default); // app es una funcion de tipo middleware (codigo intermedieaario
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
+// eslint-disable-next-line no-use-before-define
 server.on('error', onError);
+// eslint-disable-next-line no-use-before-define
 server.on('listening', onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  // eslint-disable-next-line no-shadow
+  const port = parseInt(val, 10);
 
+  // eslint-disable-next-line no-restricted-globals
   if (isNaN(port)) {
     // named pipe
     return val;
@@ -61,7 +71,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port; // handle specific listen errors with friendly messages
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`; // handle specific listen errors with friendly messages
 
   switch (error.code) {
     case 'EACCES':
