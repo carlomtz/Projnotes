@@ -2,11 +2,17 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel="shortcurt icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel='shortcurt icon' href='/images/favicon.ico' type='image/x-icon' />
    <link rel='stylesheet' href='/stylesheets/app.css' />
   </head>
   <body>
-    {{{body}}}
-  <script src="/bundle.js"></script>
+  <nav>
+       {{>_navbar}}
+    </nav>
+    <div class='container'>
+      {{{body}}}
+    </div>
+    <script src='/bundle.js'></script>
   </body>
+</html>
 </html>

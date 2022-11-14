@@ -1,4 +1,4 @@
-// Cargando Estilos
+// Cargando Estilos personalizdos
 // import './stylesheet/myStyles.css';
 // import './stylesheet/style.css';
 import 'materialize-css/dist/css/materialize.css';

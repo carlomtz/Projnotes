@@ -8,7 +8,11 @@ const home = (req, res) => {
     author: 'Karlo Uriek',
   };
   // 2.Mandamos a generar la vista con el Template Engine
-  res.render('home', viewModel);
+  res.render('home/home', viewModel);
+};
+
+const about = (req, res) => {
+  res.render('home/about', {});
 };
 // Exportando el controlador
-export default { home };
+export default { home, about };
