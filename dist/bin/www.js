@@ -3,14 +3,14 @@
 /**
  * Module dependencies.
  */
-//var app = require('../app');
+// var app = require('../app');
 "use strict";
 
 var _app = _interopRequireDefault(require("../app"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import debug from '../services/debugLogger'
+// import debug from '../services/debugLogger'
 var debug = require('debug')('projnotes');
 
 var http = require('http');
@@ -18,14 +18,11 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-
 var port = normalizePort(process.env.PORT || '3000');
-
 _app.default.set('port', port);
 /**
  * Create HTTP server.
  */
-
 
 var server = http.createServer(_app.default); //app es una funcion de tipo middleware (codigo intermedieaario
 
@@ -59,7 +56,6 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -85,7 +81,6 @@ function onError(error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
-
 
 function onListening() {
   var addr = server.address();
