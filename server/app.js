@@ -103,7 +103,7 @@ app.use((err, req, res) => {
 });
 
 // Exportando la instancia del server "app"
-// ES5 👇
+// ES5
 // module.exports = app;
-// ES6 👇
+// ES6
 export default app;

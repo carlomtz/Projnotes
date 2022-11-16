@@ -4,7 +4,6 @@
  * Module dependencies.
  */
 // var app = require('../app');
-'use strict';
 
 // eslint-disable-next-line no-underscore-dangle, no-use-before-define
 const _app = _interopRequireDefault(require('../app'));
@@ -75,12 +74,12 @@ function onError(error) {
 
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+      console.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
 
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      console.error(`${bind} is already in use`);
       process.exit(1);
       break;
 
@@ -93,10 +92,10 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-  let {
-    port
-  } = addr;
+  const addr = server.address();
+  // eslint-disable-next-line no-unused-vars
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+  // eslint-disable-next-line no-shadow
+  const { port } = addr;
   debug(`Listening on http://localhost:${port}`);
 }
