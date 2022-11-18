@@ -27,8 +27,11 @@ import debug from '../services/debugLogger';
 
 // Importando enrutador
 import router from './routes/router';
+import configKeys from './config/configKeys';
+// Importando odm
+import MongooseOdm from './config/odm';
 // Recuperar el modo de ejecución de la app
-const nodeEnv = process.env.NODE_ENV || 'development';
+const nodeEnv = configKeys.env;
 
 // Creando una instancia de express
 const app = express();
@@ -62,6 +65,22 @@ if (nodeEnv === 'development') {
   debug('Ejecutando en modo de producción ');
 }
 
+// Realizando la conexion a la base de datos
+// Creando una instancia a la conexion de la Base de datos
+const mongooseODM = new MongooseOdm(configKeys.mongoUrl);
+// Ejecutar la conexion a la DB
+// Creacion de una IIFE para crear un ambito asincrono que me permita usar async away
+(async () => {
+  // Ejecutamos el metodo de conexion
+  const connectionResult = await mongooseODM.connect();
+  // Checamos si hay un error
+  if (connectionResult) {
+    // Si esta conectado
+    logger.info('La conexion fue exitosa');
+  } else {
+    logger.error('No hubo conexion');
+  }
+})();
 // view engine setup
 // Configura el motor de plantillas
 configTemplateEngine(app);

@@ -15,7 +15,7 @@ const defaultConfig = {
 // Configuracion para desarrollo
 const devConfig = {
   env: 'development',
-  mongoUrl: 'localurl',
+  mongoUrl: process.env.DEV_DATABASE_URL,
   debug: process.env.DEBUG,
 };
 
