@@ -19,8 +19,29 @@ const showAddProjectForm = (req, res) => {
 // POST "/project/add"
 // POST "/project/create"
 const addProject = (req, res) => {
-  // Extrayendo la informacion del formulario
-  res.status(200).send('Ha llegado la peticion');
+  // Rescatando la info del formulario
+  const { validData, errorData: error } = req;
+  let project = {};
+  let errorModel = {};
+  // Desesctructurando y renombrando error de datos
+  // Verificando si hay error de validacion
+  if (error) {
+    // Rescatar los datos del formlario
+    project = error.value;
+    // Quiero generar un objeto que contenga
+    // los campos con error y sus errores
+    errorModel = error.inner.reduce((prev, curr) => {
+      // Creabdo una variable temporal donde
+      // guardare el elemento anterior
+      const newVal = prev;
+      newVal[`${curr.path}Error`] = curr.message;
+      return newVal;
+    }, {});
+  } else {
+    project = validData;
+  }
+  // Contestando los datos del proyecti
+  res.status(200).render('project/add', { project, errorModel });
 };
 
 // Exportando el Controlador
