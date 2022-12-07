@@ -15,7 +15,9 @@ class MongooseOdm {
       // Configuraciones que requiere mongoose
       mongoose.Promise = global.Promise;
       logger.info(`Conectando a la Base de datos en: ${this.url}`);
-      return true;
+      // Intento de conexión
+      const connection = await mongoose.connect(this.url);
+      return connection;
     } catch (error) {
       logger.error(
         ` No se pudo realizar la conexion debido a: ${error.message}`

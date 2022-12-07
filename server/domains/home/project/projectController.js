@@ -1,13 +1,17 @@
 // Creando los Actions Methods
 // del controlador Project
 
+// Importando el modelo del proyecto
+import ProjectModel from './projectModel';
 // GET "/project"
 // GET "/project/list"
-const list = (req, res) => {
+const list = async (req, res) => {
   // 1. Generando el view-model
-  const viewModel = {};
-  // 2. Madamos a generar la vista con el Template Engine
-  res.render('project/list', viewModel);
+  // Retorar los proyectos de la base de datos
+  const projectDocs = await ProjectModel.find().lean().exec();
+  // Regreso el resultado de la peticion
+  res.render('project/list', { projects });
+  // res.json(projects);
 };
 
 // GET "/project/add"
@@ -18,7 +22,7 @@ const showAddProjectForm = (req, res) => {
 };
 // POST "/project/add"
 // POST "/project/create"
-const addProject = (req, res) => {
+const addProject = async (req, res) => {
   // Rescatando la info del formulario
   const { validData, errorData: error } = req;
   let project = {};
@@ -38,10 +42,23 @@ const addProject = (req, res) => {
       return newVal;
     }, {});
   } else {
-    project = validData;
+    // Creando un documento con los datos provistos por el formulario
+    const projectInstance = new ProjectModel(validData);
+    // Guardando el documento den la base de datos
+    try {
+      const projectDocument = await projectInstance.save();
+      return res.json(projectDocument);
+      // Cambiar esto por winston
+      // eslint-disable-next-line no-unreachable
+      console.log(`Proyecto Creado: ${JSON.stringify(projectDocument)}`);
+      // Redireccionando al listado de proyectos
+      return res.redirect('/project');
+    } catch (error1) {
+      return res.status(404).json({ error1 });
+    }
   }
-  // Contestando los datos del proyecti
-  res.status(200).render('project/add', { project, errorModel });
+  // Contestando los datos del proyecto
+  return res.status(200).render('project/add', { project, errorModel });
 };
 
 // Exportando el Controlador
